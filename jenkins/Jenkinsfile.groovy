@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                echo "Building Branch: ${params.Branch}"
+                echo "Building Branch: ${env.BRANCH}"
             }
         }
 
@@ -28,28 +28,27 @@ pipeline {
             steps {
                 script {
                     timeout(time: 60, unit: 'MINUTES') {
-                        buildPOM("src", 'pom.xml', 'clean install', "-N")
-                        buildPOM(env.COMMON_JAVA_SOURCEDIR, 'pom.xml', 'clean install', '-fn')
+                        buildPOM("./", 'pom.xml', 'clean install')
                     }
                 }
             }
         }
 
-        stage('Deploy')
-        {
-            when {
-                expression { params.DEPLOY_TO_NEXUS }
-            }
-            steps
-            {
-                script
-                {
-                    timeout(time:10, unit: 'MINUTES') {
-                        buildPOM(env.COMMON_JAVA_SOURCEDIR, 'clearswift-common-pom.xml', 'deploy', '-DskipTests')
-                    }
-                }
-            }
-        }
+        // stage('Deploy')
+        // {
+        //     when {
+        //         expression { params.DEPLOY_TO_NEXUS }
+        //     }
+        //     steps
+        //     {
+        //         script
+        //         {
+        //             timeout(time:10, unit: 'MINUTES') {
+        //                 buildPOM(env.COMMON_JAVA_SOURCEDIR, 'clearswift-common-pom.xml', 'deploy', '-DskipTests')
+        //             }
+        //         }
+        //     }
+        // }
     }
     post {
         always {
