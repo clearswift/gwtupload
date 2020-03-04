@@ -34,30 +34,29 @@ pipeline {
             }
         }
 
-        // stage('Deploy')
-        // {
-        //     when {
-        //         expression { params.DEPLOY_TO_NEXUS }
-        //     }
-        //     steps
-        //     {
-        //         script
-        //         {
-        //             timeout(time:10, unit: 'MINUTES') {
-        //                 buildPOM(env.COMMON_JAVA_SOURCEDIR, 'clearswift-common-pom.xml', 'deploy', '-DskipTests')
-        //             }
-        //         }
-        //     }
-        // }
-    }
-    post {
-        always {
-            script {
-                junit '**/surefire-reports/*.xml'
-
+        stage('Deploy')
+        {
+            when {
+                expression { params.DEPLOY_TO_NEXUS }
+            }
+            steps
+            {
+                script
+                {
+                    timeout(time:10, unit: 'MINUTES') {
+                        buildPOM(env.COMMON_JAVA_SOURCEDIR, 'pom.xml', 'deploy', '-DskipTests')
+                    }
+                }
             }
         }
     }
+    // post {
+    //     always {
+    //         script {
+    //             junit '**/surefire-reports/*.xml'
+    //         }
+    //     }
+    // }
 }
 
 def buildPOM(localRepoPath, buildPOMPath, executionGoals, mavenParams)

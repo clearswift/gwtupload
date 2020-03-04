@@ -45,11 +45,14 @@
   </properties>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      <uniqueVersion>false</uniqueVersion>
-    </snapshotRepository>
+      <repository>
+          <id>cs-igp-dependencies-maven</id>
+          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
+      </repository>
+      <snapshotRepository>
+          <id>cs-igp-dependencies-maven</id>
+          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
+      </snapshotRepository>
   </distributionManagement>
 
   <profiles>
