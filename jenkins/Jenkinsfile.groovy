@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     timeout(time: 60, unit: 'MINUTES') {
-                        buildPOM("./", 'pom.xml', 'clean install')
+                        buildPOM("./", 'pom.xml', 'clean install', "")
                     }
                 }
             }
