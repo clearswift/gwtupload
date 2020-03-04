@@ -5,7 +5,7 @@
   <artifactId>gwtupload-project</artifactId>
   <name>GwtUpload project</name>
   <packaging>pom</packaging>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4</version>
 
   <modules>
     <module>core</module>
@@ -186,16 +186,17 @@
 
   <repositories>
     <repository>
+        <id>cs-igp-dependencies-maven</id>
+        <name>cs-igp-dependencies-maven repo</name>
+        <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
+    </repository>
+    <repository>
       <id>Central Repository</id>
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
     <repository>
         <id>Sonatype Repository</id>
         <url>https://oss.sonatype.org/content/repositories/releases</url>
-    </repository>
-    <repository>
-      <id>gwtupload</id>
-      <url>http://gwtupload.googlecode.com/svn/mavenrepo/</url>
     </repository>
     <repository>
       <id>gwtchismes</id>
