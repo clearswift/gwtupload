@@ -23,7 +23,6 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
@@ -200,7 +199,7 @@ public class BaseUploadStatus implements IUploadStatus {
    */
   public void setFileNames(List<String> names) {
     fileNames = names;
-    fileNameLabel.setHTML(SafeHtmlUtils.fromString(Utils.convertCollectionToString(names, "<br/>")).asString());
+    fileNameLabel.setHTML(Utils.convertCollectionToString(names, "<br/>"));
     if (prg instanceof HasText) {
       ((HasText) prg).setText(Utils.convertCollectionToString(names, ","));
     }

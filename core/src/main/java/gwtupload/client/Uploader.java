@@ -29,6 +29,7 @@ import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.RequestTimeoutException;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
@@ -348,8 +349,15 @@ public class Uploader extends Composite implements IsUpdateable, IUploader, HasJ
     public void onChange(ChangeEvent event) {
       basenames.clear();
       for (String s: getFileNames()) {
+        String safeName = SafeHtmlUtils.fromString(s).asString();
+        if (!s.equals(safeName)) {
+            Window.alert("Invalid filename");
+            basenames.clear();
+            return;
+        }
         basenames.add(Utils.basename(s));
       }
+
       statusWidget.setFileNames(basenames);
       if (anyFileIsRepeated(false)) {
         statusWidget.setStatus(Status.REPEATED);
