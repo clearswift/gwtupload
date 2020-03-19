@@ -51,7 +51,7 @@
       </repository>
       <snapshotRepository>
           <id>cs-igp-dependencies-maven</id>
-          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
+          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-snapshots-maven/</url>
       </snapshotRepository>
   </distributionManagement>
 
