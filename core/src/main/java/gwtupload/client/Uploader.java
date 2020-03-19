@@ -351,7 +351,8 @@ public class Uploader extends Composite implements IsUpdateable, IUploader, HasJ
       for (String s: getFileNames()) {
         String safeName = SafeHtmlUtils.fromString(s).asString();
         if (!s.equals(safeName)) {
-            Window.alert("Invalid filename");
+//            Window.alert("Invalid filename");
+            log("Invalid filename: " + safeName, null);
             basenames.clear();
             return;
         }
