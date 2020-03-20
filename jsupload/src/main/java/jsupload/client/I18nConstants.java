@@ -123,4 +123,9 @@ public class I18nConstants implements UploaderConstants {
   public String uploaderBadParsing() {
     return or(strs.get(Const.TXT_BAD_PARSING), defaultStrs.uploaderBadParsing());
   }
+
+  @Override
+  public String invalidFilename() {
+    return defaultStrs.invalidFilename();
+  }
 }

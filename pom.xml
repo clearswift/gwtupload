@@ -31,7 +31,8 @@
     <commonsIoVersion>2.3</commonsIoVersion>
     <gwtChismesVersion>0.9.7</gwtChismesVersion>
     <gwtExporterVersion>2.4.0-M1</gwtExporterVersion>
-    <gwtIncubatorVersion>20101117-r1766</gwtIncubatorVersion>
+    <gwtIncubatorVersion>2.0.1</gwtIncubatorVersion>
+
     <junitVersion>3.8.2</junitVersion>
     <log4jVersion>1.2.16</log4jVersion>
     <commonsLang3Version>3.1</commonsLang3Version>
@@ -44,11 +45,14 @@
   </properties>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      <uniqueVersion>false</uniqueVersion>
-    </snapshotRepository>
+      <repository>
+          <id>cs-igp-dependencies-maven</id>
+          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
+      </repository>
+      <snapshotRepository>
+          <id>cs-igp-dependencies-maven</id>
+          <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-snapshots-maven/</url>
+      </snapshotRepository>
   </distributionManagement>
 
   <profiles>
@@ -182,12 +186,17 @@
 
   <repositories>
     <repository>
-      <id>repo1</id>
-      <url>http://repo1.maven.org/maven2/</url>
+        <id>cs-igp-dependencies-maven</id>
+        <name>cs-igp-dependencies-maven repo</name>
+        <url>http://devnexus.engineering.clearswift.org:8081/repository/cs-igp-dependencies-maven/</url>
     </repository>
     <repository>
-      <id>gwtupload</id>
-      <url>http://gwtupload.googlecode.com/svn/mavenrepo/</url>
+      <id>Central Repository</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
+        <id>Sonatype Repository</id>
+        <url>https://oss.sonatype.org/content/repositories/releases</url>
     </repository>
     <repository>
       <id>gwtchismes</id>

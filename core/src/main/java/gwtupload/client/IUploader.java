@@ -267,6 +267,9 @@ public interface IUploader extends HasJsData, HasWidgets, IsWidget {
 
     @DefaultStringValue("Check logs in server side, maybe it raised an exception, or maybe it made a CORS request.")
     String uploaderBadParsing();
+
+    @DefaultStringValue("Invalid filename.")
+    String invalidFilename();
   }
 
   /**
